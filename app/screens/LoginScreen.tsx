@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite"
 import React, { FC, useEffect, useMemo, useRef, useState } from "react"
-import { TextInput, TextStyle, ViewStyle } from "react-native"
+import { TextInput, TextStyle, ViewStyle, Image, ImageStyle } from "react-native"
 import { Button, Icon, Screen, Text, TextField, TextFieldAccessoryProps } from "../components"
 import { useStores } from "../models"
 import { AppStackScreenProps } from "../navigators"
@@ -77,8 +77,9 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen(_
       contentContainerStyle={$screenContentContainer}
       safeAreaEdges={["top", "bottom"]}
     >
+      <Image source={require("../../assets/images/social-food-logo.png")} style={$image} />
       <Text testID="login-heading" tx="loginScreen.signIn" preset="heading" style={$signIn} />
-      <Text tx="loginScreen.enterDetails" preset="subheading" style={$enterDetails} />
+      {/* <Text tx="loginScreen.enterDetails" preset="subheading" style={$enterDetails} /> */}
       {attemptsCount > 2 && <Text tx="loginScreen.hint" size="sm" weight="light" style={$hint} />}
 
       <TextField
@@ -127,15 +128,19 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen(_
 const $screenContentContainer: ViewStyle = {
   paddingVertical: spacing.huge,
   paddingHorizontal: spacing.large,
+  backgroundColor: "white",
+  justifyContent: "center",
+  alignItems: "center"
 }
 
 const $signIn: TextStyle = {
   marginBottom: spacing.small,
+  color: "#FF6666"
 }
 
-const $enterDetails: TextStyle = {
-  marginBottom: spacing.large,
-}
+// const $enterDetails: TextStyle = {
+//   marginBottom: spacing.large,
+// }
 
 const $hint: TextStyle = {
   color: colors.tint,
@@ -144,10 +149,19 @@ const $hint: TextStyle = {
 
 const $textField: ViewStyle = {
   marginBottom: spacing.large,
+  width: "85%"
 }
 
 const $tapButton: ViewStyle = {
   marginTop: spacing.extraSmall,
+  width: "75%",
+  backgroundColor: "#FF9666",
+  alignItems: "center"
+}
+
+const $image: ImageStyle = {
+  width: 250,
+  height: 250
 }
 
 // @demo remove-file

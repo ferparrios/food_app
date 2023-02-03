@@ -60,29 +60,31 @@ const Stack = createNativeStackNavigator<AppStackParamList>()
 
 const AppStack = observer(function AppStack() {
   // @demo remove-block-start
-  const {
-    authenticationStore: { isAuthenticated },
-  } = useStores()
+  // const {
+  //   authenticationStore: { isAuthenticated },
+  // } = useStores()
 
   // @demo remove-block-end
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName={isAuthenticated ? "Welcome" : "Login"} // @demo remove-current-line
+      // initialRouteName={isAuthenticated ? "Welcome" : "Login"} 
+      initialRouteName={'Welcome'}
     >
+      <Stack.Screen name="Welcome" component={WelcomeScreen} />
+      <Stack.Screen name="Login" component={LoginScreen} />
       {/* @demo remove-block-start */}
-      {isAuthenticated ? (
+      {/* {isAuthenticated ? (
         <>
-          {/* @demo remove-block-end */}
+          
           <Stack.Screen name="Welcome" component={WelcomeScreen} />
-          {/* @demo remove-block-start */}
-          <Stack.Screen name="Demo" component={DemoNavigator} />
+                    <Stack.Screen name="Demo" component={DemoNavigator} />
         </>
       ) : (
         <>
           <Stack.Screen name="Login" component={LoginScreen} />
         </>
-      )}
+      )} */}
       {/* @demo remove-block-end */}
       {/** 🔥 Your screens go here */}
     </Stack.Navigator>
