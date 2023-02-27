@@ -1,7 +1,12 @@
 import React from "react"
 import { Image, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native"
+import { useNavigation } from '@react-navigation/native';
+
 
 export const RecipeScreen = () => {
+
+  const navigator = useNavigation()
+
   const recipeData = [
     {
       title: "Tallarines al Alfredo",
@@ -139,7 +144,7 @@ export const RecipeScreen = () => {
                   alignItems: "flex-end",
                 }}
               >
-                <TouchableOpacity onPress={() => console.log('Go to profile')}>
+                <TouchableOpacity onPress={() => navigator.navigate('Profile')}>
                   <Text
                     style={{
                       textAlign: "right",
