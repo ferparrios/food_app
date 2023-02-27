@@ -31,7 +31,7 @@ export const WelcomeScreen = () => {
               fontSize: 25,
               fontWeight: "bold"
             }}
-          >What we gonna eat today?</Text>
+          >What we gonmna eat today?</Text>
         </View>
 
 
