@@ -3,13 +3,12 @@ import { View, Text, SafeAreaView, TouchableOpacity } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 
 export const WelcomeScreen = () => {
-
   const navigator = useNavigation()
 
   return (
     <SafeAreaView
       style={{
-        paddingTop: 50
+        paddingTop: 50,
       }}
     >
       <View
@@ -17,7 +16,7 @@ export const WelcomeScreen = () => {
           // justifyContent: "center",
           alignItems: "center",
           height: "100%",
-          backgroundColor: "white"
+          backgroundColor: "white",
         }}
       >
         <View
@@ -29,11 +28,12 @@ export const WelcomeScreen = () => {
           <Text
             style={{
               fontSize: 25,
-              fontWeight: "bold"
+              fontWeight: "bold",
             }}
-          >What we gonmna eat today?</Text>
+          >
+            What we gonna eat today?
+          </Text>
         </View>
-
 
         {/* Box with lasts receips */}
         <View
@@ -45,35 +45,44 @@ export const WelcomeScreen = () => {
             // flex: 1
           }}
         >
+          <View
+            style={{
+              alignItems: "flex-start",
+            }}
+          >
+            <Text>Lasts Receips:</Text>
+          </View>
+
+          <View
+            style={{
+              alignItems: "center",
+            }}
+          >
+            <TouchableOpacity
+              style={{
+                width: 100,
+                backgroundColor: "#FF9666",
+                padding: 15,
+                borderRadius: 5,
+              }}
+              onPress={() => navigator.navigate("Login")}
+            >
+              <Text>Login</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={{
+                width: 100,
+                backgroundColor: "#FF9666",
+                padding: 15,
+                borderRadius: 5,
+              }}
+              onPress={() => navigator.navigate("Recipe")}
+            >
+              <Text>Recipe Screen</Text>
+            </TouchableOpacity>
           
-        <View
-          style={{
-            alignItems: "flex-start",
-          }}
-        >
-          <Text>
-            Lasts Receips:
-          </Text>
-        </View>
-
-        <View
-          style={{
-            alignItems: "center"
-          }}
-        >
-        <TouchableOpacity
-          style={{
-            width: 100,
-            backgroundColor: "#FF9666",
-            padding: 15,
-            borderRadius: 5
-          }}
-          onPress={() => navigator.navigate("Login")}
-        >
-          <Text>Login</Text>
-        </TouchableOpacity>
-        </View>
-
+          </View>
         </View>
       </View>
     </SafeAreaView>

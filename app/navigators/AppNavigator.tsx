@@ -1,9 +1,4 @@
-/**
- * The app navigator (formerly "AppNavigator" and "MainNavigator") is used for the primary
- * navigation flows of your app.
- * Generally speaking, it will contain an auth flow (registration, login, forgot password)
- * and a "main" flow which the user will use once logged in.
- */
+
 import {
   DarkTheme,
   DefaultTheme,
@@ -20,9 +15,11 @@ import { useStores } from "../models" // @demo remove-current-line
 import {
   LoginScreen, // @demo remove-current-line
   WelcomeScreen,
+  RecipeScreen
 } from "../screens"
 import { DemoNavigator, DemoTabParamList } from "./DemoNavigator" // @demo remove-current-line
 import { navigationRef, useBackButtonHandler } from "./navigationUtilities"
+
 
 /**
  * This type allows TypeScript to know what routes are defined in this navigator
@@ -41,6 +38,7 @@ export type AppStackParamList = {
   Welcome: undefined
   Login: undefined // @demo remove-current-line
   Demo: NavigatorScreenParams<DemoTabParamList> // @demo remove-current-line
+  Recipe: undefined
   // 🔥 Your screens go here
 }
 
@@ -73,6 +71,7 @@ const AppStack = observer(function AppStack() {
     >
       <Stack.Screen name="Welcome" component={WelcomeScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Recipe" component={RecipeScreen} />
       {/* @demo remove-block-start */}
       {/* {isAuthenticated ? (
         <>
